@@ -17,6 +17,9 @@ const i18n = new I18n({
   zh,
 });
 
+i18n.enableFallback = true;
+i18n.defaultLocale = "ko";
+
 const LOCALE_KEY = "locale";
 
 export const useTranslation = () => {
