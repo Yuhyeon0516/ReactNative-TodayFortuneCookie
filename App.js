@@ -1,12 +1,21 @@
 import { StatusBar } from "expo-status-bar";
 import { StyleSheet, Text, View } from "react-native";
 import { useTranslation } from "./src/hook/useTranslation";
+import Button from "./src/components/Button";
 
 export default function App() {
-  const { t } = useTranslation();
+  const { t, locale, setLocale } = useTranslation();
   return (
     <View style={styles.container}>
       <Text>{t("cookie_1")}</Text>
+
+      <View style={styles.buttonsContainer}>
+        <Button onPress={() => setLocale("en")} isSlected={locale === "en"} text="EN" />
+        <Button onPress={() => setLocale("es")} isSlected={locale === "es"} text="ES" />
+        <Button onPress={() => setLocale("ja")} isSlected={locale === "ja"} text="JA" />
+        <Button onPress={() => setLocale("ko")} isSlected={locale === "ko"} text="KO" />
+        <Button onPress={() => setLocale("zh")} isSlected={locale === "zh"} text="ZH" />
+      </View>
     </View>
   );
 }
@@ -14,8 +23,11 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#fff",
+    backgroundColor: "purple",
     alignItems: "center",
     justifyContent: "center",
+  },
+  buttonsContainer: {
+    flexDirection: "row",
   },
 });
