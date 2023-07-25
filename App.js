@@ -4,21 +4,28 @@ import Button from "./src/components/Button";
 import { useCookie } from "./src/hook/useCookie";
 
 import * as SplashScreen from "expo-splash-screen";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 SplashScreen.preventAutoHideAsync();
 
 export default function App() {
   const { t, locale, setLocale } = useTranslation();
   const { cookieKey } = useCookie();
+  const [isLoaded, setIsLoaded] = useState(false);
 
   useEffect(() => {
-    setTimeout(() => {
-      SplashScreen.hideAsync();
-    }, 2000);
-  }, []);
+    if (locale !== null && cookieKey) {
+      setIsLoaded(true);
+    }
+  }, [locale, cookieKey]);
 
-  if (!locale) return null;
+  useEffect(() => {
+    if (isLoaded) {
+      SplashScreen.hideAsync();
+    }
+  }, [isLoaded]);
+
+  // if (locale === null || cookieKey === "") return null;
 
   return (
     <View style={styles.container}>
