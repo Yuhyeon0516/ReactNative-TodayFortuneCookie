@@ -25,5 +25,7 @@ export const useTranslation = () => {
 
   return {
     t: (scope) => i18n.t(scope, { locale }),
+    locale,
+    setLocale,
   };
 };
