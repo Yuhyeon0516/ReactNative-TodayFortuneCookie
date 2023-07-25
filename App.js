@@ -2,12 +2,15 @@ import { StatusBar } from "expo-status-bar";
 import { StyleSheet, Text, View } from "react-native";
 import { useTranslation } from "./src/hook/useTranslation";
 import Button from "./src/components/Button";
+import { useCookie } from "./src/hook/useCookie";
 
 export default function App() {
   const { t, locale, setLocale } = useTranslation();
+  const { cookieKey } = useCookie();
+
   return (
     <View style={styles.container}>
-      <Text>{t("cookie_1")}</Text>
+      <Text>{t(cookieKey)}</Text>
 
       <View style={styles.buttonsContainer}>
         <Button onPress={() => setLocale("en")} isSlected={locale === "en"} text="EN" />
