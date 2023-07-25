@@ -1,12 +1,22 @@
-import { StatusBar } from "expo-status-bar";
 import { StyleSheet, Text, View } from "react-native";
 import { useTranslation } from "./src/hook/useTranslation";
 import Button from "./src/components/Button";
 import { useCookie } from "./src/hook/useCookie";
 
+import * as SplashScreen from "expo-splash-screen";
+import { useEffect } from "react";
+
+SplashScreen.preventAutoHideAsync();
+
 export default function App() {
   const { t, locale, setLocale } = useTranslation();
   const { cookieKey } = useCookie();
+
+  useEffect(() => {
+    setTimeout(() => {
+      SplashScreen.hideAsync();
+    }, 2000);
+  }, []);
 
   if (!locale) return null;
 
