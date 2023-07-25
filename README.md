@@ -14,3 +14,8 @@ lastly, you can see calm background Lottie animation.
 ---
 
 # Result
+
+![Result](https://github.com/Yuhyeon0516/ReactNative-TodayFortuneCookie/assets/120432007/e2d5bce7-79f2-4ae3-93ab-2bbf3d7cd3b2)
+
+
+
