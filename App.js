@@ -8,6 +8,8 @@ export default function App() {
   const { t, locale, setLocale } = useTranslation();
   const { cookieKey } = useCookie();
 
+  if (!locale) return null;
+
   return (
     <View style={styles.container}>
       <Text>{t(cookieKey)}</Text>
